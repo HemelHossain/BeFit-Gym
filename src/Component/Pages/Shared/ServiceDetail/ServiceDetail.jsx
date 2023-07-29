@@ -1,7 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
+
+                            // Single Service Detail
 const ServiceDetail = () => {
+
     const { Image, title, description } = useLoaderData();
     return (
         <div>

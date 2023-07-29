@@ -14,6 +14,7 @@ const LogIn = () => {
 
     const {users ,userSignIn, googleSignIn, githubSignIn, setUsers,  setLoading, facebookSignIn} = useContext(AuthContext);
     
+                //    Email Password Log In 
 
     const handleSignIn = (event) =>{
         event.preventDefault();
@@ -38,7 +39,9 @@ const LogIn = () => {
             setLoading(false);
         });
         
-    }
+    } 
+                //    Google Sign In 
+
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(result =>{
@@ -52,6 +55,8 @@ const LogIn = () => {
         })
     
     }
+            //  Github Sign In
+
     const handleGithubSignIn = event =>{
         event.preventDefault();
         githubSignIn()
@@ -67,6 +72,8 @@ const LogIn = () => {
         })
 
     }
+            //    Facebook Sign In  
+            
     const handleFacebookSignIn = event =>{
         event.preventDefault();
         facebookSignIn()

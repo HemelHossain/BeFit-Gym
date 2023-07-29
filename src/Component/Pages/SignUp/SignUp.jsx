@@ -15,6 +15,8 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+
+        //    Email Password Sign in 
         createUser(email, password)
         .then(result => {
             const user = result.user;
@@ -29,7 +31,7 @@ const SignUp = () => {
 
         
     }
-
+                // User Update 
     const handleUpdateProfile = (name, URL) =>{
 
         const profile = {
@@ -42,7 +44,7 @@ const SignUp = () => {
     }
 
     
-
+                //  Email Verification 
     const handleEmailVerification = () =>{
         emailVerification()
             .then(() => {})
