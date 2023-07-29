@@ -52,12 +52,12 @@ const Footer = () => {
             <hr className='mt-10 text-slate-500 mx-10' />
             <div className='md:flex justify-between items-center mx-10 pt-9 pb-12'>
                 <h1>© Copyright 2023 BeFit Gym. All Rights Reserved-Design by Hemel</h1>
-                <p className='flex gap-3 sm:mt-4'>
+                <div className='flex gap-3 sm:mt-4'>
                     <p className='bg-zinc-800 p-2'><FaGoogle className='White' /></p>
                     <p className='bg-zinc-800 p-2'><FaFacebookF /></p>
                     <p className='bg-zinc-800 p-2'><FaTwitter /></p>
                     <p className='bg-zinc-800 p-2'><FaGithub /></p>
-                </p>
+                </div>
             </div>
 
         </div>

@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
-import Carosel from '../Carousel/Carosel';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiMenuAlt3, HiOutlineX } from "react-icons/hi"
+import { AuthContext } from '../../../../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
+    const { users, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+    }
     return (
         <div>
-            <div className=''>
+            <div>
                 <nav className='w-full bg-black'>
                     <div className='justify-between px-4 mx-auto md:mx-16 lg:max-w-7xl items-center md:flex '>
                         <div>
@@ -25,24 +36,33 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className={` justify-self-center pb-3  mt-6 md:block md:mt-0 md:pb-0 ${navbar ? "block" : "hidden"}`}>
-                            <ul className='items-center justify-center sm:mb-4 md:flex space-y-8 md:space-y-0 md:space-x-6'>
+                        <div className={` justify-self-center pb-2  mt-6 md:block md:mt-0 md:pb-0 ${navbar ? "block" : "hidden"}`}>
+                            <ul className='items-center justify-center md:mb-0 sm:mb-4 md:flex space-y-7 md:space-y-0 md:space-x-6'>
                                 <li className='text-white hover:text-blue-300'><Link to='/'>Home</Link></li>
                                 <li className='text-white hover:text-blue-300'><Link to='/service'>Service</Link></li>
                                 <li className='text-white hover:text-blue-300'><Link to='/blog'>Blog</Link></li>
                                 <li className='text-white hover:text-blue-300'><Link to='/supplements'>Supplements</Link></li>
-                                <li className='text-white hover:text-blue-300'><Link to='/signup'>Sign up</Link></li>
-                                <li className='text-white hover:text-blue-300'><Link to='/login'>Login</Link></li>
-                                <li className='text-white hover:text-blue-300'>Contact</li>
+                                <>
+                                    {
+                                        users?.uid ?
+                                            <>
+                                                <li  className='text-white hover:text-blue-300 mt-1 h-7 w-7'><img className='rounded-full' src={users.photoURL}  alt="" /></li>
+                                                <li onClick={handleLogOut} className='text-white hover:text-blue-300'><button>Logout</button></li>
+
+                                            </>
+                                            :
+
+                                            <>
+                                                <li className='text-white hover:text-blue-300'><Link to='/signup'>Sign up</Link></li>
+                                                <li className='text-white hover:text-blue-300'><Link to='/login'>Login</Link></li>
+                                            </>
+                                    }
+                                </>
                             </ul>
                         </div>
-
                     </div>
-
                 </nav>
-
             </div>
-            <Carosel></Carosel>
         </div>
     )
 };

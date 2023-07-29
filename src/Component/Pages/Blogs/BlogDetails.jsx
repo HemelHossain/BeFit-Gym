@@ -5,7 +5,7 @@ const BlogDetails = ({blog}) => {
     return (
         <div>
             <h1 className='text-2xl font-bold ml-28 mt-20'>{title}</h1>
-            <img className='h-screen w-3/5 mt-12 mx-auto' src={image} alt="" />
+            <img className='h-screen w-3/5 mt-12 mx-auto object-cover' src={image} alt="" />
             <div className='text-xl mt-24 ml-28 w-3/4'>
                 <p className='mb-7'>{description1}</p>
                 <p className='mb-7'>{description2}</p>

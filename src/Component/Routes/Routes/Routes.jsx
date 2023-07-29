@@ -7,6 +7,9 @@ import Products from '../../Pages/Products/Products';
 import Blogs from '../../Pages/Blogs/Blogs';
 import LogIn from '../../Pages/LogIn/LogIn';
 import SignUp from '../../Pages/SignUp/SignUp';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import ServiceDetail from '../../Pages/Shared/ServiceDetail/ServiceDetail';
+import NotFound from '../../Pages/404Page/NotFound';
 
 export const Routes = createBrowserRouter([
     {
@@ -19,18 +22,23 @@ export const Routes = createBrowserRouter([
             },
             {
                 path: '/service',
-                loader: () => fetch('http://localhost:5000/service'),
-                element: <AllService></AllService>
+                loader: () => fetch('https://befit-gym-server.vercel.app/service'),
+                element: <PrivateRoute><AllService></AllService></PrivateRoute>
+            },
+            {
+                path: '/service/:id',
+                element:<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>,
+                loader: ({params}) => fetch(`https://befit-gym-server.vercel.app/service/${params.id}`)
             },
             {
                 path: '/supplements',
-                loader: () => fetch('http://localhost:5000/product'),
-                element: <Products></Products>
+                loader: () => fetch('https://befit-gym-server.vercel.app/product'),
+                element: <PrivateRoute><Products></Products></PrivateRoute>
             },
             {
                 path: '/blog',
-                loader: () => fetch('http://localhost:5000/blog'),
-                element: <Blogs></Blogs>
+                loader: () => fetch('https://befit-gym-server.vercel.app/blog'),
+                element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
             },
             {
                 path: '/login',
@@ -39,6 +47,11 @@ export const Routes = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
-            }]
+            },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
+            }
+        ]
     }
 ])

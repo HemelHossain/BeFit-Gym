@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Services = () => {
     const [Service, setService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://befit-gym-server.vercel.app/service')
             .then(res => res.json())
             .then(data => setService(data));
     }, [])

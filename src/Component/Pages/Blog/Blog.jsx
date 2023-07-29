@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Blog = () => {
     return (
-        <div className='flex md:flex-row sm:flex-col-reverse md:mx-5 mt-40'>
-            <div className='w-2/4 mt-5 md:text-left sm:mx-auto sm:text-center'>
+        <div className='flex md:flex-row sm:flex-col-reverse xs:flex-col-reverse md:mx-5 mt-40'>
+            <div className='w-2/4 mt-5 md:text-left sm:mx-auto xs:mx-auto sm:text-center xs:text-center'>
                 <h1 className='text-5xl font-bold'>THE BEST THING IN TRANING</h1>
                 <p className='mt-4 mr-4'>Training is a transformative journey that extends beyond physical fitness. It holds the power to unlock your inner strength, push boundaries, and help you become the best version of yourself. Get ready to dive into the incredible benefits that training can bring to your life.</p>
                 <ul className='mt-10'>
@@ -17,7 +17,7 @@ const Blog = () => {
                 </ul>
                 <button className='mt-5 text-xl bg-red-600 px-6 py-3 text-white'><Link to='/blog'>Explore Our Blogs</Link></button>
             </div>
-            <div className='w-2/4 sm:mx-auto'>
+            <div className='w-2/4 sm:mx-auto xs:mx-auto'>
                 <img className='w-full' src="https://gymster.peacefulqode.com/wp-content/uploads/2020/07/se-2-3.jpg" alt="" />
             </div>
         </div>
